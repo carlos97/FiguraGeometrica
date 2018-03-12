@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package figurageometrica;
+import java.util.Scanner;
 
 /**
  *
@@ -11,22 +12,30 @@ package figurageometrica;
  */
 public class Principal {
     public static void main(String[] args){
-        Triangulo triangulo = new Triangulo(2, 2, 3,4);
-        Cuadrado cuadrado = new Cuadrado(5);
-        Rectangulo rectangulo = new Rectangulo(2, 4);
+        Scanner s = new Scanner(System.in);
         
+        Triangulo triangulo = new Triangulo(scanner("lado1 triangulo:"), 
+                                            scanner("lado2 triangulo:"), 
+                                            scanner("lado3 triangulo:"),
+                                            scanner("altura triangulo:"));
+        
+        Cuadrado cuadrado = new Cuadrado(scanner("lado cuadrado:"));
+        
+        Rectangulo rectangulo = new Rectangulo(scanner("lado1 rectangulo:"),
+                                                scanner("lado2 rectangulo:"));
+        System.out.println("\n \n");
         System.out.println(triangulo.calcularPerimetro());
         System.out.println(triangulo.calcularArea());
         System.out.println(cuadrado.calcularPerimetro());
         System.out.println(cuadrado.calcularArea());
         System.out.println(rectangulo.calcularPerimetro());
         System.out.println(rectangulo.calcularArea());
-        
-        
-        
-        
-        
-        
-        
     }
+    
+    public static int scanner(String print){
+        System.out.println(print);
+        Scanner s = new Scanner(System.in);
+        return s.nextInt();
+    }
+    
 }
